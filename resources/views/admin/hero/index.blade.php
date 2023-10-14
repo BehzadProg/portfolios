@@ -20,7 +20,6 @@
                             <form action="{{route('admin.hero.update' , 1)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-                                <input type="hidden" name="old_image" value="{{$hero->image}}">
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                     <div class="col-sm-12 col-md-7">

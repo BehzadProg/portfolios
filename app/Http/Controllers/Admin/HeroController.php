@@ -74,14 +74,16 @@ class HeroController extends Controller
 
             return $year .'_'. $month .'_'. $day .'_'. $hour .'_'. $minute .'_'. $second .'_'. $microsecond .'_'. $name;
         }
-        $old_image = $request->old_image;
+
         try {
             DB::beginTransaction();
+            
+            $hero = Hero::first();
+
         if($request->hasFile('image')){
 
-            $hero = Hero::first();
             if($hero && $hero->exists(public_path($hero->image ))){
-               unlink(public_path(env('HERO_IMAGE_UPLOAD_PATH')) . $old_image);
+               unlink(public_path(env('HERO_IMAGE_UPLOAD_PATH')) . $hero->image);
             }
 
             $image = $request->file('image');
@@ -97,7 +99,7 @@ class HeroController extends Controller
                 'sub_title' => $request->sub_title,
                 'btn_text' => $request->btn_text,
                 'btn_url' => $request->btn_url,
-                'image' => isset($fileNameImage) ? $fileNameImage : $old_image,
+                'image' => isset($fileNameImage) ? $fileNameImage : $hero->image,
             ]);
 
 
