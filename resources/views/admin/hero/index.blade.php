@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+@section('title' , 'Hero Section')
+
 @section('content')
     <section class="section">
         <div class="section-header">
