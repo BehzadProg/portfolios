@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -30,6 +31,9 @@ Route::get('/portfolio-details', function () {
     return view('frontend.portfolio_details');
 });
 
+/* About Download Resume Route */
+Route::get('resume/download' , [HomeController::class , 'resumeDownload'])->name('resume.download');
+
 Route::get('/dashboard', [DashboardController::class , 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -47,4 +51,6 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /* Services Routes */
     Route::resource('service' , ServiceController::class);
+    /* About Routes */
+    Route::resource('about' , AboutController::class);
 })->middleware(['auth', 'verified']);

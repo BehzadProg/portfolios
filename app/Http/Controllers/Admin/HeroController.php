@@ -63,35 +63,12 @@ class HeroController extends Controller
             'image' => 'mimes:png,jpg,jpeg,svg',
         ]);
 
-        function generateFileName($name){
-            $year = Carbon::now()->year;
-            $month = Carbon::now()->month;
-            $day = Carbon::now()->day;
-            $hour = Carbon::now()->hour;
-            $minute = Carbon::now()->minute;
-            $second = Carbon::now()->second;
-            $microsecond = Carbon::now()->microsecond;
-
-            return $year .'_'. $month .'_'. $day .'_'. $hour .'_'. $minute .'_'. $second .'_'. $microsecond .'_'. $name;
-        }
-
         try {
-            DB::beginTransaction();
-            
+
             $hero = Hero::first();
 
-        if($request->hasFile('image')){
+            $imagePath = handleUpload('image' , $hero , env('HERO_IMAGE_UPLOAD_PATH'));
 
-            if($hero && $hero->exists(public_path($hero->image ))){
-               unlink(public_path(env('HERO_IMAGE_UPLOAD_PATH')) . $hero->image);
-            }
-
-            $image = $request->file('image');
-
-            $fileNameImage = generateFileName($image->getClientOriginalName());
-
-            $image->move(public_path(env('HERO_IMAGE_UPLOAD_PATH')) , $fileNameImage);
-        }
             Hero::updateOrCreate(
                 ['id' => $id],
                 [
@@ -99,7 +76,7 @@ class HeroController extends Controller
                 'sub_title' => $request->sub_title,
                 'btn_text' => $request->btn_text,
                 'btn_url' => $request->btn_url,
-                'image' => isset($fileNameImage) ? $fileNameImage : $hero->image,
+                'image' => isset($imagePath) ? $imagePath : $hero->image,
             ]);
 
 
