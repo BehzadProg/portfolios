@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -51,6 +52,10 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /* Services Routes */
     Route::resource('service' , ServiceController::class);
+
     /* About Routes */
     Route::resource('about' , AboutController::class);
+
+    /* Category Routes */
+    Route::resource('category' , CategoryController::class);
 })->middleware(['auth', 'verified']);
