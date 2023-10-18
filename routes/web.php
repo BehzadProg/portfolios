@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TyperTitleController;
 
@@ -56,6 +57,9 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
     /* About Routes */
     Route::resource('about' , AboutController::class);
 
-    /* Category Routes */
+    /* Portfolio Category Routes */
     Route::resource('category' , CategoryController::class);
+
+    /** Portfolio Items Routes */
+    Route::resource('portfolio-item' , PortfolioItemController::class);
 })->middleware(['auth', 'verified']);
