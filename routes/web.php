@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PortfolioItemController;
+use App\Http\Controllers\Admin\PortfolioSettingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TyperTitleController;
 
@@ -62,4 +63,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Portfolio Items Routes */
     Route::resource('portfolio-item' , PortfolioItemController::class);
+
+    /** Portfolio Setting Section Routes */
+    Route::resource('portfolio-setting' , PortfolioSettingController::class);
+
 })->middleware(['auth', 'verified']);

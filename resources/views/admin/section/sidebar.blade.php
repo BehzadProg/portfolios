@@ -64,6 +64,7 @@
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.category.index')}}">Category</a></li>
               <li><a class="nav-link" href="{{route('admin.portfolio-item.index')}}">Portfolio Items</a></li>
+              <li><a class="nav-link" href="{{route('admin.portfolio-setting.index')}}">Portfolio Section Setting</a></li>
             </ul>
           </li>
       </ul>
