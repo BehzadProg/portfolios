@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSettingController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SkillSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
 
 /*
@@ -65,5 +66,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Portfolio Setting Section Routes */
     Route::resource('portfolio-setting' , PortfolioSettingController::class);
+
+    /** Skill Setting Section Route */
+    Route::resource('skill-setting' , SkillSettingController::class);
 
 })->middleware(['auth', 'verified']);

@@ -67,6 +67,13 @@
               <li><a class="nav-link" href="{{route('admin.portfolio-setting.index')}}">Portfolio Section Setting</a></li>
             </ul>
           </li>
+
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Skill</span></a>
+            <ul class="dropdown-menu" style="display: none;">
+              <li><a class="nav-link" href="{{route('admin.skill-setting.index')}}">Skill Section Setting</a></li>
+            </ul>
+          </li>
       </ul>
   </aside>
 </div>
