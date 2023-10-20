@@ -127,12 +127,20 @@
                             type: 'DELETE',
                             url: deleteUrl,
                             success: function(data) {
-                                Swal.fire(
-                                    'Deleted!',
-                                    'Your Title has been deleted.',
-                                    'success'
+                                if(data.status == 'error'){
+                                    Swal.fire(
+                                    'You can not delete!',
+                                    'This category contain items can not be deleted.',
+                                    'error'
                                 )
-                                window.location.reload()
+                                }else{
+                                    Swal.fire(
+                                        'Deleted!',
+                                        'Your Title has been deleted.',
+                                        'success'
+                                    )
+                                    window.location.reload()
+                                }
                             },
                             error: function(xhr, status, error) {
                                 console.log(error);

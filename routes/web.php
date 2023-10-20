@@ -23,15 +23,12 @@ use App\Http\Controllers\Admin\TyperTitleController;
 |
 */
 
-Route::get('/', [HomeController::class , 'index']);
+Route::get('/', [HomeController::class , 'index'])->name('home.page');
 Route::get('/blog', function () {
     return view('frontend.blog');
 });
 Route::get('/blog-details', function () {
     return view('frontend.blog_details');
-});
-Route::get('/portfolio-details', function () {
-    return view('frontend.portfolio_details');
 });
 
 /* About Download Resume Route */
@@ -46,6 +43,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('portfolio-details/{id}', [HomeController::class , 'showPortfolio'])->name('show.portfolio');
 
 Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 

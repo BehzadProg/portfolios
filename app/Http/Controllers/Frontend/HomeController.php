@@ -30,4 +30,9 @@ class HomeController extends Controller
         $about = About::first();
         return response()->download(public_path(env('ABOUTME_RESUME_UPLOAD_PATH').$about->resume));
     }
+
+    public function showPortfolio($id){
+        $showPortfolio = PortfolioItem::findOrFail($id);
+        return view('frontend.portfolio_details', compact('showPortfolio'));
+    }
 }

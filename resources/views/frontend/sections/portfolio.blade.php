@@ -31,7 +31,7 @@
                         </figure>
                         <div class="portfolio-content">
                             <a href="{{asset(env('PORTFOLIO_ITEM_IMAGE_UPLOAD_PATH').$item->image)}}" data-lity class="icon"><i class="fas fa-plus"></i></a>
-                            <h4 class="title"><a href="portfolio-details.html">{{$item->title}}</a></h4>
+                            <h4 class="title"><a href="{{route('show.portfolio' , $item->id)}}">{{$item->title}}</a></h4>
                             <div class="desc">
                                 <p>{!! Str::limit(strip_tags($item->description), 100)!!}</p>
                             </div>
