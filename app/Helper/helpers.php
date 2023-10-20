@@ -48,3 +48,10 @@ function deleteFileIfExist($filePath)
         throw $e;
     }
 }
+
+function setColors($index)
+{
+    $colors = ['#558bff','#fecc90','#ff885e','#282828','#190844','#9dd3ff'];
+
+    return $colors[$index % count($colors)];
+}

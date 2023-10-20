@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\PortfolioSetting;
 use App\Http\Controllers\Controller;
 use App\Models\PortfolioItem;
+use App\Models\SkillItem;
 use App\Models\SkillSetting;
 
 class HomeController extends Controller
@@ -24,7 +25,8 @@ class HomeController extends Controller
         $portfolioCategories = Category::all();
         $portfolioItems = PortfolioItem::all();
         $skillSetting = SkillSetting::first();
-        return view('frontend.home', compact('hero','typerTitles','services','about','portfolioSetting','portfolioCategories','portfolioItems','skillSetting'));
+        $skillItem = SkillItem::all();
+        return view('frontend.home', compact('hero','typerTitles','services','about','portfolioSetting','portfolioCategories','portfolioItems','skillSetting','skillItem'));
     }
 
     public function resumeDownload()
