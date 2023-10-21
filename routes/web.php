@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -77,5 +78,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Experience Route */
     Route::resource('experience' , ExperienceController::class);
+
+    /** Feedback Route */
+    Route::resource('feedback' , FeedbackController::class);
 
 })->middleware(['auth', 'verified']);
