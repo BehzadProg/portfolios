@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\feedbackSettingController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -81,5 +82,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Feedback Route */
     Route::resource('feedback' , FeedbackController::class);
+
+    /** Feedback Setting Section Route */
+    Route::resource('feedback-setting' , feedbackSettingController::class);
 
 })->middleware(['auth', 'verified']);

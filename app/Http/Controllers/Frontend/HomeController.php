@@ -6,14 +6,16 @@ use App\Models\Hero;
 use App\Models\About;
 use App\Models\Service;
 use App\Models\Category;
+use App\Models\Feedback;
+use App\Models\SkillItem;
+use App\Models\Experience;
 use App\Models\TyperTitle;
+use App\Models\SkillSetting;
 use Illuminate\Http\Request;
+use App\Models\PortfolioItem;
+use App\Models\FeedbackSetting;
 use App\Models\PortfolioSetting;
 use App\Http\Controllers\Controller;
-use App\Models\Experience;
-use App\Models\PortfolioItem;
-use App\Models\SkillItem;
-use App\Models\SkillSetting;
 
 class HomeController extends Controller
 {
@@ -28,7 +30,22 @@ class HomeController extends Controller
         $skillSetting = SkillSetting::first();
         $skillItem = SkillItem::all();
         $experience = Experience::first();
-        return view('frontend.home', compact('hero','typerTitles','services','about','portfolioSetting','portfolioCategories','portfolioItems','skillSetting','skillItem','experience'));
+        $feedback = Feedback::all();
+        $feedbackTitle = FeedbackSetting::first();
+        return view('frontend.home', compact(
+            'hero',
+            'typerTitles',
+            'services',
+            'about',
+            'portfolioSetting',
+            'portfolioCategories',
+            'portfolioItems',
+            'skillSetting',
+            'skillItem',
+            'experience',
+            'feedback',
+            'feedbackTitle'
+        ));
     }
 
     public function resumeDownload()

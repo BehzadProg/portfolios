@@ -66,8 +66,8 @@ class FeedbackDataTable extends DataTable
     {
         return [
             Column::make('id')->width(40),
-            Column::make('name'),
-            Column::make('position'),
+            Column::make('name')->width(100),
+            Column::make('position')->width(120),
             Column::make('description'),
             Column::computed('action')
             ->exportable(false)

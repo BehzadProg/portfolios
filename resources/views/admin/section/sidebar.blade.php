@@ -82,7 +82,7 @@
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Feedback</span></a>
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.feedback.index')}}">Feedbacks</a></li>
-              <li><a class="nav-link" href="{{route('admin.skill-setting.index')}}">Feedback Section Setting</a></li>
+              <li><a class="nav-link" href="{{route('admin.feedback-setting.index')}}">Feedback Section Setting</a></li>
             </ul>
           </li>
       </ul>
