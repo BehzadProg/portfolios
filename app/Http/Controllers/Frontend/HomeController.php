@@ -10,6 +10,7 @@ use App\Models\TyperTitle;
 use Illuminate\Http\Request;
 use App\Models\PortfolioSetting;
 use App\Http\Controllers\Controller;
+use App\Models\Experience;
 use App\Models\PortfolioItem;
 use App\Models\SkillItem;
 use App\Models\SkillSetting;
@@ -26,7 +27,8 @@ class HomeController extends Controller
         $portfolioItems = PortfolioItem::all();
         $skillSetting = SkillSetting::first();
         $skillItem = SkillItem::all();
-        return view('frontend.home', compact('hero','typerTitles','services','about','portfolioSetting','portfolioCategories','portfolioItems','skillSetting','skillItem'));
+        $experience = Experience::first();
+        return view('frontend.home', compact('hero','typerTitles','services','about','portfolioSetting','portfolioCategories','portfolioItems','skillSetting','skillItem','experience'));
     }
 
     public function resumeDownload()

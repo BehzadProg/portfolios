@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -73,5 +74,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Skill Item Route */
     Route::resource('skill-item' , SkillItemController::class);
+
+    /** Experience Route */
+    Route::resource('experience' , ExperienceController::class);
 
 })->middleware(['auth', 'verified']);
