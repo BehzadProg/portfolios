@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
@@ -34,9 +35,6 @@ Route::get('/', [HomeController::class , 'index'])->name('home.page');
 Route::get('/blog', function () {
     return view('frontend.blog');
 });
-Route::get('/blog-details', function () {
-    return view('frontend.blog_details');
-});
 
 /* About Download Resume Route */
 Route::get('resume/download' , [HomeController::class , 'resumeDownload'])->name('resume.download');
@@ -52,6 +50,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('portfolio-details/{id}', [HomeController::class , 'showPortfolio'])->name('show.portfolio');
+Route::get('blog-details/{id}', [HomeController::class , 'showBlog'])->name('show.blog');
+Route::get('blogs', [HomeController::class , 'blogs'])->name('blogs');
 
 Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
@@ -93,5 +93,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Blog Route */
     Route::resource('blog' , BlogController::class);
+
+    /** Blog Setting Section Route */
+    Route::resource('blog-setting' , BlogSettingController::class);
 
 })->middleware(['auth', 'verified']);
