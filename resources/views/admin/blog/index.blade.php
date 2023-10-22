@@ -1,11 +1,11 @@
 @extends('admin.layouts.master')
 
-@section('title' , 'Blog Category')
+@section('title' , 'Blog')
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Blog Category</h1>
+            <h1>Blogs</h1>
         </div>
 
         <div class="section-body">
@@ -13,9 +13,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Categories</h4>
+                            <h4>All Blogs</h4>
                             <div class="card-header-action">
-                                <a href="{{route('admin.blog-category.create')}}" class="btn btn-primary">Create New <i class="fas fa-plus"></i></a>
+                                <a href="{{route('admin.blog.create')}}" class="btn btn-primary">Create New <i class="fas fa-plus"></i></a>
                             </div>
                         </div>
                         <div class="card-body">

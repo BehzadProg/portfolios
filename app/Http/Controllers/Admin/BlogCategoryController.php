@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\BlogCategoryDataTable;
-use App\Http\Controllers\Controller;
+use Str;
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
-use Str;
+use App\Http\Controllers\Controller;
+use App\DataTables\BlogCategoryDataTable;
 
 class BlogCategoryController extends Controller
 {
@@ -85,6 +86,12 @@ class BlogCategoryController extends Controller
     public function destroy($id)
     {
         $blogCategory = BlogCategory::findOrFail($id);
-        $blogCategory->delete();
+        $hasItem = Blog::where('category' , $blogCategory->id)->count();
+        if($hasItem == 0){
+            $blogCategory->delete();
+            return true;
+        }
+        return response(['status' => 'error']);
+
     }
 }

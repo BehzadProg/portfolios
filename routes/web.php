@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
@@ -89,5 +90,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Blog Category Route */
     Route::resource('blog-category' , BlogCategoryController::class);
+
+    /** Blog Route */
+    Route::resource('blog' , BlogController::class);
 
 })->middleware(['auth', 'verified']);
