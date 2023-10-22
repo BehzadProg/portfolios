@@ -85,6 +85,13 @@
               <li><a class="nav-link" href="{{route('admin.feedback-setting.index')}}">Feedback Section Setting</a></li>
             </ul>
           </li>
+
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Blog</span></a>
+            <ul class="dropdown-menu" style="display: none;">
+              <li><a class="nav-link" href="{{route('admin.blog-category.index')}}">Category</a></li>
+            </ul>
+          </li>
       </ul>
   </aside>
 </div>

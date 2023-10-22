@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
@@ -85,5 +86,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Feedback Setting Section Route */
     Route::resource('feedback-setting' , feedbackSettingController::class);
+
+    /** Blog Category Route */
+    Route::resource('blog-category' , BlogCategoryController::class);
 
 })->middleware(['auth', 'verified']);
