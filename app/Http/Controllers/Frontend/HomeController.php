@@ -17,7 +17,10 @@ use App\Models\PortfolioItem;
 use App\Models\FeedbackSetting;
 use App\Models\PortfolioSetting;
 use App\Http\Controllers\Controller;
+use App\Mail\contactMail;
 use App\Models\BlogSetting;
+use App\Models\ContactSetting;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -36,6 +39,7 @@ class HomeController extends Controller
         $feedbackTitle = FeedbackSetting::first();
         $blogs = Blog::latest()->take(5)->get();
         $blogTitle = BlogSetting::first();
+        $contactTitle = ContactSetting::first();
         return view('frontend.home', compact(
             'hero',
             'typerTitles',
@@ -50,7 +54,8 @@ class HomeController extends Controller
             'feedback',
             'feedbackTitle',
             'blogs',
-            'blogTitle'
+            'blogTitle',
+            'contactTitle'
         ));
     }
 
@@ -75,5 +80,19 @@ class HomeController extends Controller
     public function blogs(){
         $blogs = Blog::latest()->paginate(9);
         return view('frontend.blog' , compact('blogs'));
+    }
+
+    public function contact(Request $request){
+
+        $request->validate([
+            'name' => 'required|max:200',
+            'subject' => 'required|max:300',
+            'email' => 'required|email',
+            'message' => 'required|max:2000',
+        ]);
+
+        Mail::send(new contactMail($request->all()));
+
+        return response(['status' => 'success', 'message' => 'Mail Sended Successfully']);
     }
 }

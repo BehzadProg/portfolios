@@ -64,7 +64,7 @@
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.category.index')}}">Category</a></li>
               <li><a class="nav-link" href="{{route('admin.portfolio-item.index')}}">Portfolio Items</a></li>
-              <li><a class="nav-link" href="{{route('admin.portfolio-setting.index')}}">Portfolio Section Setting</a></li>
+              <li><a class="nav-link" href="{{route('admin.portfolio-setting.index')}}">Section Setting</a></li>
             </ul>
           </li>
 
@@ -72,7 +72,7 @@
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Skill</span></a>
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.skill-item.index')}}">Skill Items</a></li>
-              <li><a class="nav-link" href="{{route('admin.skill-setting.index')}}">Skill Section Setting</a></li>
+              <li><a class="nav-link" href="{{route('admin.skill-setting.index')}}">Section Setting</a></li>
             </ul>
           </li>
 
@@ -82,7 +82,7 @@
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Feedback</span></a>
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.feedback.index')}}">Feedbacks</a></li>
-              <li><a class="nav-link" href="{{route('admin.feedback-setting.index')}}">Feedback Section Setting</a></li>
+              <li><a class="nav-link" href="{{route('admin.feedback-setting.index')}}">Section Setting</a></li>
             </ul>
           </li>
 
@@ -91,7 +91,14 @@
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.blog-category.index')}}">Category</a></li>
               <li><a class="nav-link" href="{{route('admin.blog.index')}}">Blog List</a></li>
-              <li><a class="nav-link" href="{{route('admin.blog-setting.index')}}">Blog Section Setting</a></li>
+              <li><a class="nav-link" href="{{route('admin.blog-setting.index')}}">Section Setting</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Contact</span></a>
+            <ul class="dropdown-menu" style="display: none;">
+              <li><a class="nav-link" href="{{route('admin.contact-setting.index')}}">Section Setting</a></li>
             </ul>
           </li>
       </ul>

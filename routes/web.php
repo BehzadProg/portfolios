@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -32,9 +33,6 @@ use App\Http\Controllers\Admin\TyperTitleController;
 */
 
 Route::get('/', [HomeController::class , 'index'])->name('home.page');
-Route::get('/blog', function () {
-    return view('frontend.blog');
-});
 
 /* About Download Resume Route */
 Route::get('resume/download' , [HomeController::class , 'resumeDownload'])->name('resume.download');
@@ -52,6 +50,7 @@ require __DIR__.'/auth.php';
 Route::get('portfolio-details/{id}', [HomeController::class , 'showPortfolio'])->name('show.portfolio');
 Route::get('blog-details/{id}', [HomeController::class , 'showBlog'])->name('show.blog');
 Route::get('blogs', [HomeController::class , 'blogs'])->name('blogs');
+Route::post('contact-me', [HomeController::class , 'contact'])->name('contact');
 
 Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
@@ -96,5 +95,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Blog Setting Section Route */
     Route::resource('blog-setting' , BlogSettingController::class);
+
+    /** Contact Setting Section Route */
+    Route::resource('contact-setting' , ContactSettingController::class);
 
 })->middleware(['auth', 'verified']);
