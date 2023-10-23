@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\feedbackSettingController;
+use App\Http\Controllers\Admin\FooterSocialLinkController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -98,5 +99,8 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Contact Setting Section Route */
     Route::resource('contact-setting' , ContactSettingController::class);
+
+    /** Footer Social Link Route */
+    Route::resource('footer-social-link' , FooterSocialLinkController::class);
 
 })->middleware(['auth', 'verified']);
