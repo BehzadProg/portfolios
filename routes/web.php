@@ -19,9 +19,12 @@ use App\Http\Controllers\Admin\FooterHelpLinkController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterSocialLinkController;
 use App\Http\Controllers\Admin\FooterUsefulLinkController;
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSettingController;
+use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
@@ -118,5 +121,14 @@ Route::prefix('admin-panel/management/')->name('admin.')->group(function(){
 
     /** Footer Help Link Route */
     Route::resource('footer-help-link' , FooterHelpLinkController::class);
+
+    /** Setting Route */
+    Route::get('settings' , SettingController::class)->name('setting.index');
+
+    /** General Setting Route */
+    Route::resource('general-setting' , GeneralSettingController::class);
+
+    /** General Setting Route */
+    Route::resource('seo-setting' , SeoSettingController::class);
 
 })->middleware(['auth', 'verified']);

@@ -12,7 +12,7 @@
             <div class="col-md-12 col-lg-3 widget">
                 <div class="text-box">
                     <figure class="footer-logo">
-                        <img src="images/logo.png" alt="">
+                        <img src="{{asset(env('GENERAL_SETTING_IMAGE_UPLOAD_PATH').$generalSetting->footer_logo)}}" alt="">
                     </figure>
                     <p>{{$footerInfo->sub_title}}</p>
                     <ul class="d-flex flex-wrap">

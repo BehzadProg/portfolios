@@ -1,3 +1,7 @@
+@php
+    $generalSetting = \App\Models\GeneralSetting::first();
+    $SeoSetting = \App\Models\SeoSetting::first();
+@endphp
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -6,8 +10,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Rabins | Personal Portfolio HTML Template</title>
-	<link rel="shortcut icon" type="image/ico" href="{{asset('frontend/assets/images/favicon.png')}}" />
+    <meta name="description" content="{{$SeoSetting->description}}">
+    <meta name="keywords" content="{{$SeoSetting->keywords}}">
+	<title>{{@$SeoSetting->title}}</title>
+	<link rel="shortcut icon" type="image/ico" href="{{asset(env('GENERAL_SETTING_IMAGE_UPLOAD_PATH').$generalSetting->favicon)}}" />
 	<link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/assets/css/normalize.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/assets/css/style-plugin-collection.css')}}">

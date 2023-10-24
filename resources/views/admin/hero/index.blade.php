@@ -45,7 +45,7 @@
                                 </div>
                                @if ($hero->image)
                                <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Previous
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Preview
                                     Image</label>
                                 <div class="col-sm-12 col-md-7">
                                    <img class="w-25" src="{{asset(env('HERO_IMAGE_UPLOAD_PATH').$hero->image)}}" alt="">

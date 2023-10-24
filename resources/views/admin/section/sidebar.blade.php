@@ -55,7 +55,6 @@
 
             </ul>
           </li>
-        {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li> --}}
         <li><a class="nav-link" href="{{route('admin.service.index')}}"><i class="far fa-square"></i> <span>Services</span></a></li>
         <li><a class="nav-link" href="{{route('admin.about.index')}}"><i class="far fa-square"></i> <span>About Me</span></a></li>
 
@@ -112,6 +111,8 @@
               <li><a class="nav-link" href="{{route('admin.footer-help-link.index')}}">Footer Help Link</a></li>
             </ul>
           </li>
+
+          <li><a class="nav-link" href="{{route('admin.setting.index')}}"><i class="far fa-square"></i> <span>Settings</span></a></li>
       </ul>
   </aside>
 </div>
