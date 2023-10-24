@@ -107,7 +107,7 @@
             <ul class="dropdown-menu" style="display: none;">
               <li><a class="nav-link" href="{{route('admin.footer-social-link.index')}}">Social Links</a></li>
               <li><a class="nav-link" href="{{route('admin.footer-info.index')}}">Footer Information</a></li>
-              <li><a class="nav-link" href="{{route('admin.footer-contact-info.index')}}">Footer Contact Info</a></li>
+              <li><a class="nav-link" href="{{route('admin.footer-useful-link.index')}}">Footer Useful Link</a></li>
             </ul>
           </li>
       </ul>
