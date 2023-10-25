@@ -49,9 +49,24 @@ function deleteFileIfExist($filePath)
     }
 }
 
+/** Get Diynamic Colors For Skill Section*/
+
 function setColors($index)
 {
     $colors = ['#558bff','#fecc90','#ff885e','#282828','#190844','#9dd3ff'];
 
     return $colors[$index % count($colors)];
+}
+
+/** Set Sidebar Active */
+
+function setSidebarActive($route)
+{
+    if(is_array($route)){
+        foreach($route as $r){
+            if(request()->routeIs($r)){
+                return 'active';
+            }
+        }
+    }
 }
