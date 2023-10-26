@@ -45,7 +45,7 @@ Route::get('/', [HomeController::class , 'index'])->name('home.page');
 /* About Download Resume Route */
 Route::get('resume/download' , [HomeController::class , 'resumeDownload'])->name('resume.download');
 
-Route::get('/dashboard', [DashboardController::class , 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('admin-panel/management/dashboard', [DashboardController::class , 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
