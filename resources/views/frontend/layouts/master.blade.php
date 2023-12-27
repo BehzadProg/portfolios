@@ -48,6 +48,7 @@
 	<script src="{{asset('frontend/assets/js/vendor/modernizr.js')}}"></script>
 	<script src="{{asset('frontend/assets/js/main.js')}}"></script>
     @stack('scripts')
+    {!!  GoogleReCaptchaV3::init() !!}
 </body>
 
 </html>

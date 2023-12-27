@@ -8,19 +8,20 @@ use App\Models\About;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\Feedback;
+use App\Mail\contactMail;
 use App\Models\SkillItem;
 use App\Models\Experience;
 use App\Models\TyperTitle;
+use App\Models\BlogSetting;
 use App\Models\SkillSetting;
 use Illuminate\Http\Request;
 use App\Models\PortfolioItem;
+use App\Models\ContactSetting;
 use App\Models\FeedbackSetting;
 use App\Models\PortfolioSetting;
 use App\Http\Controllers\Controller;
-use App\Mail\contactMail;
-use App\Models\BlogSetting;
-use App\Models\ContactSetting;
 use Illuminate\Support\Facades\Mail;
+use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
 
 class HomeController extends Controller
 {
@@ -89,6 +90,7 @@ class HomeController extends Controller
             'subject' => 'required|max:300',
             'email' => 'required|email',
             'message' => 'required|max:2000',
+            'g-recaptcha-response' => [new GoogleReCaptchaV3ValidationRule('contact_us')]
         ]);
 
         Mail::send(new contactMail($request->all()));

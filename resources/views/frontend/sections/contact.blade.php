@@ -45,12 +45,15 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="form-box">
+                                <div id="contact_us_id"></div>
                                 <button class="button-primary mouse-dir" type="submit" id="submit-form">Send Now <span
                                         class="dir-part"></span></button>
                             </div>
                         </div>
                     </div>
                 </form>
+                {!!  GoogleReCaptchaV3::render(['contact_us_id'=>'contact_us']) !!}
+
                 <!-- Contact-Form / -->
             </div>
         </div>
